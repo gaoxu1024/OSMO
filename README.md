@@ -20,7 +20,7 @@ If you find MDP_Tracking useful in your research, please consider citing:
 
 ### Usage of the demo
 
-1. Our project is writing in Python 2.7 and PyTorch 0.2. Please set the environment at first.
+1. Our project is written in Python 2.7 and PyTorch 0.2. Please set the environment at first.
 
 2. Download the CampusStone dataset from https://drive.google.com/open?id=1nL60VdWkOkvjkdkAY53cuuLbV6wBStSn and unzip the file.
 
