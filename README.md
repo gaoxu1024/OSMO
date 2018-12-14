@@ -8,7 +8,7 @@ Created by Xu Gao, Peking University
 
 ### Citation
 
-If you find MDP_Tracking useful in your research, please consider citing:
+If you find OSMO useful in your research, please consider citing:
 
      @inproceedings{xu2018osmo,
         author = {Gao, Xu and Jiang, Tingting},
