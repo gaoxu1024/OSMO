@@ -88,7 +88,6 @@ def main():
             online_track = update_online_track(online_track, rest_det, missing_obj_idxes, association, cost_matrix, frame, img_root_dir, net, args, obst)
 
     # Convert online_track into the txt file
-
     approach = 'AS' if args.use_ssm else 'A'
     save_dir = 'result/%s_%s_%s.txt' % (method, ds[ds_no], approach)
     save_online_track_into_txt(online_track, save_dir)
