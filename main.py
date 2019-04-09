@@ -92,7 +92,6 @@ def main():
     approach = 'AS' if args.use_ssm else 'A'
     save_dir = 'result/%s_%s_%s.txt' % (method, ds[ds_no], approach)
     save_online_track_into_txt(online_track, save_dir)
-    smooth_track(save_dir)
 
 if __name__ == '__main__':
     main()
