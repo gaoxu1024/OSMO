@@ -415,6 +415,24 @@ def refine_online_track_by_app(seq, target, img_root_dir, frame, count, net, arg
     return float(app_similarity), float(motion_similarity), count
 
 
+def arrange(save_dir):
+    with open(save_dir, 'a') as f:
+        track = np.genfromtxt(save_dir, delimiter=',')
+        tracking_id = int(max(track[:, 1]))
+        for id in range(tracking_id):
+            idx = np.argwhere(track[:, 1] == id)
+            for i in range(len(idx)):
+                if i != 0:
+                    gap = abs(track[idx[i], 0] - track[idx[i - 1], 0])
+                    if gap != 1 and gap <= 15:
+                        change = (track[idx[i], 2:6] - track[idx[i-1], 2:6])/gap
+                        for g in range(gap-1):
+                            frame = track[idx[i - 1], 0] + (g+1)
+                            new_track_pos = track[idx[i-1], 2:6] + (g+1) * change
+                            output_text = '%d,%d,%d,%d,%d,%d,-1,-1,-1,-1\n' % (frame, id, int(new_track_pos[0][0]), int(new_track_pos[0][1]), int(new_track_pos[0][2]), int(new_track_pos[0][3]))
+                            f.write(output_text)
+                            
+
 def update_online_track(online_track, rest_det, missing_obj_idxes, association, cost_matrix, frame, img_root_dir, net, args, obst):
 
     if len(association) != 0:
@@ -480,7 +498,6 @@ def save_online_track_into_txt(online_track, save_dir):
             for i, pos in enumerate(traj.pos):
                 frame = traj.frame[i]
                 output_text = '%d,%d,%d,%d,%d,%d,-1,-1,-1,-1\n' % (frame, track_id, int(pos[0]), int(pos[1]), int(pos[2]), int(pos[3]))
-                f.write(output_text)
-                
-    smooth(save_dir)
-
+                f.write(output_text)                
+    arrange(save_dir)
+    
