@@ -10,7 +10,7 @@ Created by Xu Gao, Peking University
 
 If you find OSMO useful in your research, please consider citing:
 
-     @inproceedings{xu2018osmo,
+     @inproceedings{osmo2018,
         author = {Gao, Xu and Jiang, Tingting},
         title = {OSMO: Online Specific Models for Occlusion in Multiple Object Tracking Under Surveillance Scene},
         booktitle = {Proceedings of the 26th ACM International Conference on Multimedia},
